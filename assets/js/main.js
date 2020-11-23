@@ -78,4 +78,28 @@ console.log(creatoreNumeriCasuali); */
   /* numeroUtente = Number(prompt("inserisci un numero"));
   listaNumeri.push(numeroUtente[i]); */
 
+
+
+  
   // Il computer deve generare 16 numeri casuali tra 1 e 100.
+
+  var listaNumeri = [];
+ 
+  var i=0;
+  while ( i < 16 ) {
+  numeriCasuale = Math.round(Math.random()* 100 + 1);
+  listaNumeri.push(numeriCasuale);
+  i++;
+  };
+  console.log(listaNumeri);  
+
+  // I numeri non possono essere duplicati
+  
+  
+
+
+
+
+  
+  
+  
