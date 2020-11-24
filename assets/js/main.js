@@ -127,7 +127,7 @@ console.log(creatoreNumeriCasuali); */
     }
   }
   
-  console.log(controlloNumero(numeriPc, number));
+  /* console.log(controlloNumero(numeriPc, number)); */
 
 
 
@@ -139,7 +139,7 @@ console.log(creatoreNumeriCasuali); */
   var numeriUtenti = [];
   var possibilità = 100 - 16;
 
-  for (var i = 0; i < possibilità; i++) {
+  for (var i = 0; i < 16; i++) {
     var numeroUtente = Number(prompt("inserisci un numero tra 1 e 100"));
     if (controlloNumero(numeriPc, numeroUtente)){
       console.log("Boom Game over");
@@ -153,4 +153,48 @@ console.log(creatoreNumeriCasuali); */
   }
   console.log(numeroUtente);
 
-// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+  // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+
+  
+  /* document.getElementById("punteggio").innerHTML = "Il tuo punteggio è di: " + numeriUtenti.length + " punti"; */
+  
+  function fermatore(lunghezzaNumeroUtente, lunghezzaMax ) {
+    if (lunghezzaNumeroUtente >= lunghezzaMax) {
+      alert("YOU WIN");
+    } else {
+      alert("BOOM...Game Over...Try Again")
+      return "you lose";
+    }
+  }
+
+  var fermaCiclo = fermatore(numeriUtenti.length, 1) ;
+
+  console.log(fermaCiclo);
+
+
+  // BONUS: (da fare solo se funziona tutto il resto)
+// all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
+// con difficoltà 0 => tra 1 e 100
+// con difficoltà 1 =>  tra 1 e 80
+// con difficoltà 2 => tra 1 e 50
+
+
+  //creo i 3 livelli di difficoltà
+
+  switch (key) {
+    case 0:
+      
+      break;
+      
+    case 1:
+    
+      break;
+    
+    case 2:
+  
+      break;
+  
+    default:
+
+      break;
+  }
