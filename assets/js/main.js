@@ -83,7 +83,7 @@ console.log(creatoreNumeriCasuali); */
   
   // Il computer deve generare 16 numeri casuali tra 1 e 100.
 
-  var listaNumeri = [];
+  /* var listaNumeri = [];
  
   var i=0;
   while ( i < 16 ) {
@@ -91,15 +91,66 @@ console.log(creatoreNumeriCasuali); */
   listaNumeri.push(numeriCasuale);
   i++;
   };
-  console.log(listaNumeri);  
+  console.log(listaNumeri);   */
 
+  function getRandomNumber(min, max){
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
+
+  /* console.log(getRandomNumber(1, 100)); */
+
+  var numeriPc = [];
+
+  while(numeriPc.length !==16) {
+    var number = getRandomNumber(1, 100);
+    if(! controlloNumero(numeriPc, number /* ===false */) ) {    // ! solo quando non sono gia presenti
+      numeriPc.push(number);                      // pusha 
+    }
+  }
+  /* for (var i = 0; i < 16; i++) {
+    var number = getRandomNumber(1, 100);
+    numeriPc.push(number);
+  } */
+
+  console.log(numeriPc);
   // I numeri non possono essere duplicati
   
+  var arrN = [1, 3, 5, 7, 7];
+
+  function controlloNumero(array, number) {
+    var i= 0;
+    while ( i < array.length ) {
+      if (number === array[i]) {
+        return true;
+      }
+      i++;
+    }
+  }
   
+  console.log(controlloNumero(numeriPc, number));
 
 
 
+  // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
+  // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
+
 
   
-  
-  
+  var numeriUtenti = [];
+  var possibilità = 100 - 16;
+
+  for (var i = 0; i < possibilità; i++) {
+    var numeroUtente = Number(prompt("inserisci un numero tra 1 e 100"));
+    if (controlloNumero(numeriPc, numeroUtente)){
+      console.log("Boom Game over");
+      break;
+    }
+    while (controlloNumero(numeriUtenti, numeroUtente)) {
+      alert("non puoi usare 2 volte lo stesso numero");
+      numeroUtente = Number(prompt("inserisci al numero tra 1 e 100"));
+    }
+    numeriUtenti.push(numeroUtente);
+  }
+  console.log(numeroUtente);
+
+// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
