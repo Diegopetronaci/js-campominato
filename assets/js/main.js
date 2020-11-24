@@ -115,7 +115,7 @@ console.log(creatoreNumeriCasuali); */
   console.log(numeriPc);
   // I numeri non possono essere duplicati
   
-  var arrN = [1, 3, 5, 7, 7];
+
 
   function controlloNumero(array, number) {
     var i= 0;
@@ -124,6 +124,14 @@ console.log(creatoreNumeriCasuali); */
         return true;
       }
       i++;
+    }
+  }
+
+  function controlloEccezioni(numeroUser, min, max) {
+    if (numeroUser > max) {
+      return true;
+    } else if (numeroUser < min) {
+      return true;
     }
   }
   
@@ -139,7 +147,7 @@ console.log(creatoreNumeriCasuali); */
   var numeriUtenti = [];
   var possibilità = 100 - 16;
 
-  for (var i = 0; i < 16; i++) {
+  for (var i = 0; i < possibilità; i++) {
     var numeroUtente = Number(prompt("inserisci un numero tra 1 e 100"));
     if (controlloNumero(numeriPc, numeroUtente)){
       console.log("Boom Game over");
@@ -149,6 +157,10 @@ console.log(creatoreNumeriCasuali); */
       alert("non puoi usare 2 volte lo stesso numero");
       numeroUtente = Number(prompt("inserisci al numero tra 1 e 100"));
     }
+    while (controlloEccezioni(numeroUtente, 1, 100)) {
+      alert("Non barare...dev ' essere tra 1 e 100");
+      numeroUtente = Number(prompt("inserisci al numero tra 1 e 100"));
+    }
     numeriUtenti.push(numeroUtente);
   }
   console.log(numeroUtente);
@@ -156,7 +168,7 @@ console.log(creatoreNumeriCasuali); */
   // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 
   
-  /* document.getElementById("punteggio").innerHTML = "Il tuo punteggio è di: " + numeriUtenti.length + " punti"; */
+    
   
   function fermatore(lunghezzaNumeroUtente, lunghezzaMax ) {
     if (lunghezzaNumeroUtente >= lunghezzaMax) {
@@ -164,37 +176,14 @@ console.log(creatoreNumeriCasuali); */
     } else {
       alert("BOOM...Game Over...Try Again")
       return "you lose";
-    }
+    } 
   }
 
-  var fermaCiclo = fermatore(numeriUtenti.length, 1) ;
+  var fermaCiclo = fermatore(numeriUtenti.length, possibilità) ;
 
   console.log(fermaCiclo);
 
 
-  // BONUS: (da fare solo se funziona tutto il resto)
-// all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
-// con difficoltà 0 => tra 1 e 100
-// con difficoltà 1 =>  tra 1 e 80
-// con difficoltà 2 => tra 1 e 50
+  document.getElementById("punteggio").innerHTML = "Il tuo punteggio è di: " + numeriUtenti.length + " punti";
 
-
-  //creo i 3 livelli di difficoltà
-
-  switch (key) {
-    case 0:
-      
-      break;
-      
-    case 1:
-    
-      break;
-    
-    case 2:
-  
-      break;
-  
-    default:
-
-      break;
-  }
+ //bonus in altra cartella
